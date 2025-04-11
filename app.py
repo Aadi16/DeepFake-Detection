@@ -121,7 +121,7 @@ uploaded_file = st.file_uploader("📤 Upload a face image", type=["jpg", "jpeg"
 if uploaded_file is not None:
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
     image = cv2.imdecode(file_bytes, 1)
-    st.image(image, caption="👤 Uploaded Face", channels="BGR", use_column_width=True)
+    st.image(image, caption="👤 Uploaded Face", channels="BGR", use_container_width=True)
 
     if st.button("🔍 Predict"):
         with st.spinner("Analyzing..."):
