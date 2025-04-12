@@ -42,7 +42,6 @@ def load_models():
         "Scaler": joblib.load(os.path.join(model_dir, "scaler.pkl")),
     }
 
-models = load_models()
 
 # === Utility Functions ===
 def lbp(image):
@@ -150,6 +149,7 @@ if uploaded_file is not None:
     if st.button("Predict"):
         with st.spinner("Analyzing..."):
             try:
+                models = load_models()
                 start = time.time()
 
                 if model_choice == "LBP + Random Forest":
